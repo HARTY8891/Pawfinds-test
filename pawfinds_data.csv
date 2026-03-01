@@ -9,6 +9,5 @@ id,category_id,title,image_url,price,is_recommended,is_new,is_bestseller,reviews
 108,חתולים,משחק נוצות אינטראקטיבי חשמלי,https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600,65,yes,yes,yes,1350,https://www.aliexpress.com/item/example8.html
 109,דגים,מסנן אקווריום שקט 500L/H,https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=600,78,no,no,yes,620,https://www.aliexpress.com/item/example9.html
 110,כלבים,צעצוע גומי בצורת עצם עם חריצים,https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600,29,yes,no,no,550,https://www.aliexpress.com/item/example10.html
-111,כלבים,צעצוע גומי בצורת עצם עם חריצים,,5,yes,no,no,,
-112,כלבים,צעצוע גומי בצורת עצם עם חריצים,,5,no,no,yes,,
-113,כלבים,צעצוע גומי בצורת עצם עם חריצים,,5,yes,yes,yes,,
+111,כלבים,צעצוע גומי בצורת עצם עם חריצים,https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600,29,yes,no,yes,620,
+112,כלבים,צעצוע גומי בצורת עצם עם חריצים,https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600,29,yes,no,yes,620,
