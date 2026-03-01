@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PawFinds — ציוד לחיות מחמד במחירים הוגנים</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
 :root{
   --navy:#0F1C35; --navy-mid:#1B2B4B; --navy-light:#2E4270;
@@ -131,6 +130,42 @@ footer{background:var(--navy);padding:28px 56px;display:flex;justify-content:spa
 .footer-logo span{color:var(--gold)}
 .footer-note{font-size:.75rem;color:rgba(255,255,255,.35);font-weight:500}
 
+
+/* LOAD BAR */
+#loadBar{
+  background:var(--navy);
+  padding:12px 56px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  border-bottom:2px solid rgba(232,184,75,.2);
+}
+#loadBar p{color:rgba(255,255,255,.7);font-size:.85rem;font-weight:500}
+.load-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold);color:var(--navy);
+  padding:8px 20px;border-radius:50px;
+  font-weight:800;font-size:.82rem;
+  cursor:pointer;border:none;
+  font-family:'Heebo',sans-serif;
+  transition:.2s;white-space:nowrap;
+}
+.load-btn:hover{background:#d4a63a;transform:translateY(-1px)}
+.load-btn input{display:none}
+#loadSuccess{
+  background:#0d3320;
+  padding:10px 56px;
+  display:none;
+  align-items:center;
+  gap:10px;
+  border-bottom:2px solid #1a6640;
+}
+#loadSuccess span{color:#4ade80;font-size:.85rem;font-weight:600}
+#loadedFileName{color:#86efac;font-size:.82rem}
+@media(max-width:768px){
+  #loadBar,#loadSuccess{padding:12px 20px;flex-wrap:wrap;gap:10px}
+}
+
 /* RESPONSIVE */
 @media(max-width:1024px){.product-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){
@@ -161,6 +196,7 @@ footer{background:var(--navy);padding:28px 56px;display:flex;justify-content:spa
     <li><a onclick="showPage('about')" id="nav-about">אודות</a></li>
   </ul>
 </nav>
+
 
 <div id="page-home" class="page active">
   <section class="hero">
@@ -453,18 +489,38 @@ function showPage(id) {
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
+// Parse CSV text into array of objects
+function parseCSV(text) {
+  var lines = text.trim().split('\n');
+  var headers = lines[0].split(',').map(function(h){ return h.trim().replace(/^\uFEFF/,''); });
+  return lines.slice(1).map(function(line) {
+    // Handle commas inside quoted fields
+    var cols = [];
+    var cur = '', inQ = false;
+    for (var i = 0; i < line.length; i++) {
+      var ch = line[i];
+      if (ch === '"') { inQ = !inQ; }
+      else if (ch === ',' && !inQ) { cols.push(cur); cur = ''; }
+      else { cur += ch; }
+    }
+    cols.push(cur);
+    var obj = {};
+    headers.forEach(function(h, i){ obj[h] = (cols[i] || '').trim(); });
+    return obj;
+  }).filter(function(r){ return r.id; });
+}
+
 document.getElementById('homeGrid').innerHTML = skeletons(6);
 
-fetch(EXCEL_FILE)
-  .then(function(res){ if(!res.ok) throw new Error(); return res.arrayBuffer(); })
-  .then(function(buf){
-    var wb = XLSX.read(buf, {type:'array'});
-    var data = XLSX.utils.sheet_to_json(wb.Sheets['Products'] || wb.Sheets[wb.SheetNames[0]]);
+fetch('pawfinds_data.csv?v=' + Date.now())
+  .then(function(res){ if(!res.ok) throw new Error(); return res.text(); })
+  .then(function(text){
+    var data = parseCSV(text);
     PRODUCTS = data.map(normalizeProduct);
     renderAll();
   })
   .catch(function(){
-    console.warn('Using fallback data');
+    console.warn('CSV not found, using fallback data');
     PRODUCTS = FALLBACK_RAW.map(normalizeProduct);
     renderAll();
   });
