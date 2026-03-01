@@ -260,27 +260,27 @@ var EXCEL_FILE = 'pawfinds_data.xlsx';
 var PRODUCTS = [];
 
 var FALLBACK_RAW = [
-  {id:1, category_id:'DOGS',    title:'רתמת טיולים ארגונומית עם ידית גב',  image_url:'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600', price:'52',  is_recommended:'yes', is_new:'yes', is_bestseller:'yes', reviews:1500, affiliate_link:'#'},
-  {id:2, category_id:'CATS',    title:'מזרקת מים שקטה לחתולים 2.5L',       image_url:'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600', price:'89',  is_recommended:'yes', is_new:'no',  is_bestseller:'yes', reviews:900,  affiliate_link:'#'},
-  {id:3, category_id:'DOGS',    title:'מיטת הרגעה מעגלית לכלבים',           image_url:'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600', price:'110', is_recommended:'no',  is_new:'yes', is_bestseller:'no',  reviews:400,  affiliate_link:'#'},
-  {id:4, category_id:'CATS',    title:'עץ טיפוס לחתולים 5 קומות',           image_url:'https://images.unsplash.com/photo-1561948955-570b270e7c36?w=600', price:'195', is_recommended:'yes', is_new:'yes', is_bestseller:'yes', reviews:2100, affiliate_link:'#'},
-  {id:5, category_id:'DOGS',    title:'קערת האכלה חכמה אנטי-בולע',          image_url:'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=600', price:'45',  is_recommended:'no',  is_new:'yes', is_bestseller:'no',  reviews:320,  affiliate_link:'#'},
-  {id:6, category_id:'DOGS',    title:'חגורת בטיחות לרכב לכלבים',           image_url:'https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=600', price:'38',  is_recommended:'no',  is_new:'no',  is_bestseller:'yes', reviews:750,  affiliate_link:'#'},
-  {id:7, category_id:'BIRDS',   title:'כלוב פסיון מרווח עם מוטות עץ',      image_url:'https://images.unsplash.com/photo-1612024782955-49fae79e42bb?w=600', price:'220', is_recommended:'yes', is_new:'no',  is_bestseller:'no',  reviews:180,  affiliate_link:'#'},
-  {id:8, category_id:'CATS',    title:'משחק נוצות אינטראקטיבי חשמלי',      image_url:'https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600', price:'65',  is_recommended:'yes', is_new:'yes', is_bestseller:'yes', reviews:1350, affiliate_link:'#'},
-  {id:9, category_id:'FISH',    title:'מסנן אקווריום שקט 500L/H',           image_url:'https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=600', price:'78',  is_recommended:'no',  is_new:'no',  is_bestseller:'yes', reviews:620,  affiliate_link:'#'},
-  {id:10,category_id:'RABBITS', title:'כלוב ארנבים מרווח עם תא שינה',      image_url:'https://images.unsplash.com/photo-1535241749838-299277b6305f?w=600', price:'160', is_recommended:'yes', is_new:'yes', is_bestseller:'no',  reviews:290,  affiliate_link:'#'}
+  {id:1, category_id:'כלבים',   title:'רתמת טיולים ארגונומית עם ידית גב',  image_url:'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600', price:'52',  is_recommended:'yes', is_new:'yes', is_bestseller:'yes', reviews:1500, affiliate_link:'#'},
+  {id:2, category_id:'חתולים',  title:'מזרקת מים שקטה לחתולים 2.5L',       image_url:'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600', price:'89',  is_recommended:'yes', is_new:'no',  is_bestseller:'yes', reviews:900,  affiliate_link:'#'},
+  {id:3, category_id:'כלבים',   title:'מיטת הרגעה מעגלית לכלבים',           image_url:'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600', price:'110', is_recommended:'no',  is_new:'yes', is_bestseller:'no',  reviews:400,  affiliate_link:'#'},
+  {id:4, category_id:'חתולים',  title:'עץ טיפוס לחתולים 5 קומות',           image_url:'https://images.unsplash.com/photo-1561948955-570b270e7c36?w=600', price:'195', is_recommended:'yes', is_new:'yes', is_bestseller:'yes', reviews:2100, affiliate_link:'#'},
+  {id:5, category_id:'כלבים',   title:'קערת האכלה חכמה אנטי-בולע',          image_url:'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=600', price:'45',  is_recommended:'no',  is_new:'yes', is_bestseller:'no',  reviews:320,  affiliate_link:'#'},
+  {id:6, category_id:'כלבים',   title:'חגורת בטיחות לרכב לכלבים',           image_url:'https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=600', price:'38',  is_recommended:'no',  is_new:'no',  is_bestseller:'yes', reviews:750,  affiliate_link:'#'},
+  {id:7, category_id:'ציפורים', title:'כלוב פסיון מרווח עם מוטות עץ',      image_url:'https://images.unsplash.com/photo-1612024782955-49fae79e42bb?w=600', price:'220', is_recommended:'yes', is_new:'no',  is_bestseller:'no',  reviews:180,  affiliate_link:'#'},
+  {id:8, category_id:'חתולים',  title:'משחק נוצות אינטראקטיבי חשמלי',      image_url:'https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600', price:'65',  is_recommended:'yes', is_new:'yes', is_bestseller:'yes', reviews:1350, affiliate_link:'#'},
+  {id:9, category_id:'דגים',    title:'מסנן אקווריום שקט 500L/H',           image_url:'https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=600', price:'78',  is_recommended:'no',  is_new:'no',  is_bestseller:'yes', reviews:620,  affiliate_link:'#'},
+  {id:10,category_id:'ארנבים',  title:'כלוב ארנבים מרווח עם תא שינה',      image_url:'https://images.unsplash.com/photo-1535241749838-299277b6305f?w=600', price:'160', is_recommended:'yes', is_new:'yes', is_bestseller:'no',  reviews:290,  affiliate_link:'#'}
 ];
 
 var CAT_MAP = {
-  'DOGS':    {he:'כלבים',   emoji:'🐕'},
-  'CATS':    {he:'חתולים',  emoji:'🐈'},
-  'BIRDS':   {he:'ציפורים', emoji:'🦜'},
-  'FISH':    {he:'דגים',    emoji:'🐟'},
-  'RABBITS': {he:'ארנבים',  emoji:'🐇'},
-  'HAMSTERS':{he:'אוגרים',  emoji:'🐹'},
-  'REPTILES':{he:'זוחלים',  emoji:'🦎'},
-  'OTHER':   {he:'כללי',    emoji:'🐾'}
+  'כלבים':   {he:'כלבים',   emoji:'🐕'},
+  'חתולים':  {he:'חתולים',  emoji:'🐈'},
+  'ציפורים': {he:'ציפורים', emoji:'🦜'},
+  'דגים':    {he:'דגים',    emoji:'🐟'},
+  'ארנבים':  {he:'ארנבים',  emoji:'🐇'},
+  'אוגרים':  {he:'אוגרים',  emoji:'🐹'},
+  'זוחלים':  {he:'זוחלים',  emoji:'🦎'},
+  'כללי':    {he:'כללי',    emoji:'🐾'}
 };
 
 var activeFilters = {home:'ALL', rec:'ALL', newp:'ALL', best:'ALL'};
@@ -292,7 +292,7 @@ function normalizeProduct(r) {
   };
   return {
     id: r.id,
-    category: String(r.category_id || 'OTHER').trim().toUpperCase(),
+    category: String(r.category_id || 'כללי').trim(),
     title: String(r.title || 'מוצר ללא שם'),
     image: String(r.image_url || ''),
     price: r.price || '?',
